@@ -7,4 +7,5 @@ Flags =
 Name = main
 
 all:
-	$(CC) $(Flags) $(Files) -o $(Name) -lncurses
+	mkdir build
+	$(CC) $(Flags) $(Files) -o build/$(Name) -lncurses

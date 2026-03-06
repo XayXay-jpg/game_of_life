@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ncurses.h>
 
-#include "../heads/functions.h"
+#include "../heads/frame.h"
 #include "../heads/structs.h"
 
 void frame(int (*field)[LENGTH]){

@@ -1,4 +1,6 @@
 #ifndef FUNCTIONS
+#define FUNCTIONS
+
 #define LENGTH 80
 #define WIDTH 25
 
