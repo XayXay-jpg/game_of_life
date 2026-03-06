@@ -7,24 +7,33 @@
 #include "../heads/structs.h"
 
 int main(void) {
-  double fact = -1;
-  int game = 1;
-  int field[WIDTH][LENGTH] = {0};
+    double speed = 1.0;       
+    int game = 1;
+    int field[WIDTH][LENGTH] = {0};
 
-  initscr();
-  cbreak();
-  noecho();
-  keypad(stdscr, TRUE);
-  timeout(50 * fact);
+    initscr();
+    cbreak();
+    noecho();
+    keypad(stdscr, TRUE);
+    curs_set(0);                 
 
-  while (game) {
-    if(start_screen(field, &game)){
-      char key = getch();
-      control(key, &fact, &game);
-      frame(field);
+
+    if (start_screen(field, &game) == 0 || game == 0) {
+        endwin();
+        return 0;
     }
-  }
 
-  endwin();
-  return 0;
+    timeout(50 * speed);    
+
+    while (game) {
+        int key = getch();
+        if (key != ERR) {
+            control((char)key, &speed, &game);
+            timeout(50 * speed);
+        }
+        frame(field);
+    }
+
+    endwin();
+    return 0;
 }
