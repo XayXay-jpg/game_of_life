@@ -4,6 +4,10 @@
 #define LENGTH 80
 #define WIDTH 25
 
+#include <ncurses.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #include "struct.h"
 
 void frame(int (*field)[LENGTH]);
@@ -15,5 +19,7 @@ void Horizontal_wall();
 void ShowFrame(int (*field)[LENGTH]);
 
 void CheckLife(int (*field)[LENGTH]);
+
+int start_screen(int (*field)[LENGTH], int *game);
 
 #endif
