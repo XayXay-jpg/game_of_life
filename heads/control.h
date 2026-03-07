@@ -1,9 +1,6 @@
 #ifndef CONTROL
 #define CONTROL
 
-#define LENGTH 80
-#define WIDTH 25
-
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>

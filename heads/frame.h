@@ -1,9 +1,6 @@
 #ifndef FUNCTIONS
 #define FUNCTIONS
 
-#define LENGTH 80
-#define WIDTH 25
-
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>

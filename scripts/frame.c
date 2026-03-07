@@ -89,23 +89,23 @@ int start_screen(int (*field)[LENGTH], int *game) {
         switch (start_key) {
             char *filename; 
             case '1':
-                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/blocks_80x25.txt";
+                filename = "game_of_life/scenario/blocks_80x25.txt";
                 FillField(field, filename);
                 return 1;
             case '2':
-                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/glider_gun_80x25.txt";
+                filename = "game_of_life/scenario/glider_gun_80x25.txt";
                 FillField(field, filename);
                 return 1;
             case '3':
-                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/gliders_80x25.txt";
+                filename = "game_of_life/scenario/gliders_80x25.txt";
                 FillField(field, filename);
                 return 1;
             case '4':
-                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/oscillators_80x25.txt.txt";
+                filename = "game_of_life/scenario/oscillators_80x25.txt.txt";
                 FillField(field, filename);
                 return 1;
             case '5':
-                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/rpentomino_80x25.txt";
+                filename = "game_of_life/scenario/rpentomino_80x25.txt";
                 FillField(field, filename);
                 return 1;
             case '6':
