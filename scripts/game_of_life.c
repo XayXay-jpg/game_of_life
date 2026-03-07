@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../heads/control.h"
-#include "../heads/frame.h"
-#include "../heads/structs.h"
+#include "heads/control.h"
+#include "heads/frame.h"
+#include "heads/structs.h"
 
 int main(void) {
-    double speed = 1.0;       
+    double speed = 1.0;
     int game = 1;
     int field[WIDTH][LENGTH] = {0};
 
@@ -15,15 +15,14 @@ int main(void) {
     cbreak();
     noecho();
     keypad(stdscr, TRUE);
-    curs_set(0);                 
-
+    curs_set(0);
 
     if (start_screen(field, &game) == 0 || game == 0) {
         endwin();
         return 0;
     }
 
-    timeout(50 * speed);    
+    timeout(50 * speed);
 
     while (game) {
         int key = getch();

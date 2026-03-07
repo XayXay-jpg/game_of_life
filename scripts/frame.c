@@ -1,12 +1,12 @@
+#include "heads/frame.h"
+
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../heads/control.h"
-#include "../heads/frame.h"
-#include "../heads/structs.h"
+#include "heads/control.h"
+#include "heads/structs.h"
 
-// Отрисовка всего экрана (рамка + поле)
 void frame(int (*field)[LENGTH]) {
     Vertical_wall();
     Horizontal_wall();
@@ -38,14 +38,12 @@ void CheckLife(int (*field)[LENGTH]) {
 
             for (int dy = -1; dy <= 1; dy++) {
                 for (int dx = -1; dx <= 1; dx++) {
-                    if (dx == 0 && dy == 0)
-                        continue;
+                    if (dx == 0 && dy == 0) continue;
 
                     int ny = (y + dy + WIDTH) % WIDTH;
                     int nx = (x + dx + LENGTH) % LENGTH;
 
-                    if (field[ny][nx] == 1)
-                        count++;
+                    if (field[ny][nx] == 1) count++;
                 }
             }
 
@@ -58,8 +56,7 @@ void CheckLife(int (*field)[LENGTH]) {
     }
 
     for (int y = 0; y < WIDTH; y++)
-        for (int x = 0; x < LENGTH; x++)
-            field[y][x] = newField[y][x];
+        for (int x = 0; x < LENGTH; x++) field[y][x] = newField[y][x];
 }
 
 void ShowFrame(int (*field)[LENGTH]) {
@@ -78,29 +75,38 @@ int start_screen(int (*field)[LENGTH], int *game) {
     clear();
     printw(
         "Start game (enter scenario):\n"
-        "1 - sustainable scenario 1\n"
-        "2 - sustainable scenario 2\n"
-        "3 - sustainable scenario 3\n"
-        "4 - sustainable scenario 4\n"
-        "5 - sustainable scenario 5\n"
+        "1 -  scenario 1\n"
+        "2 -  scenario 2\n"
+        "3 -  scenario 3\n"
+        "4 -  scenario 4\n"
+        "5 -  scenario 5\n"
         "6 - user input\n"
         "Press 'q' to quit\n");
     refresh();
 
-    char start_key;
     while (1) {
-        start_key = getch();
+        char start_key = getch();
         switch (start_key) {
+            char *filename; 
             case '1':
-
+                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/blocks_80x25.txt";
+                FillField(field, filename);
                 return 1;
             case '2':
+                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/glider_gun_80x25.txt";
+                FillField(field, filename);
                 return 1;
             case '3':
+                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/gliders_80x25.txt";
+                FillField(field, filename);
                 return 1;
             case '4':
+                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/oscillators_80x25.txt.txt";
+                FillField(field, filename);
                 return 1;
             case '5':
+                filename = "/Users/deenaarl/D12P02.ID_1577490-Team_TL_homanfid.22172b95_0759_4726-1/src/scenario/rpentomino_80x25.txt";
+                FillField(field, filename);
                 return 1;
             case '6':
                 UserInput(field);
@@ -112,4 +118,45 @@ int start_screen(int (*field)[LENGTH], int *game) {
                 break;
         }
     }
+}
+
+int FillField(int (*field)[LENGTH], const char *filename) {
+    FILE *f = fopen(filename, "r");
+    if (!f) return -1;
+
+    for (int row = 0; row < WIDTH; ++row) {
+        for (int col = 0; col < LENGTH; ++col) {
+            int ch = fgetc(f);
+            if (ch == EOF) {
+                fclose(f);
+                return -2;
+            }
+            if (ch == '\n') {
+                fclose(f);
+                return -4;  
+            }
+            if (ch != '0' && ch != '1') {
+                fclose(f);
+                return -3;   
+            }
+            field[row][col] = (ch == '1') ? 1 : 0;
+        }
+
+        int ch = fgetc(f);
+        if (ch == EOF) {
+            if (row == WIDTH - 1) {
+                break;   
+            } else {
+                fclose(f);
+                return -2;  
+            }
+        }
+        if (ch != '\n') {
+            fclose(f);
+            return -4;   
+        }
+    }
+
+    fclose(f);
+    return 0;
 }

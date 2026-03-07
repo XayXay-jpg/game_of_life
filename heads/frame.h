@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "struct.h"
+#include "structs.h"
 
 void frame(int (*field)[LENGTH]);
 
@@ -21,5 +21,7 @@ void ShowFrame(int (*field)[LENGTH]);
 void CheckLife(int (*field)[LENGTH]);
 
 int start_screen(int (*field)[LENGTH], int *game);
+
+int FillField(int (*field)[LENGTH], const char *filename);
 
 #endif

@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "struct.h"
+#include "structs.h"
 
 void control(const char key, double *speed, int *game);
 
