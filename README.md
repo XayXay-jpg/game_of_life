@@ -4,10 +4,10 @@
 
 ###### ssh
 
-```git clone git@github.com:MaxonPy/pong_team.git```
+```git clone git@github.com:XayXay-jpg/game_of_life.git```
 
 ###### https
-```git clone https://github.com/MaxonPy/pong_team.git````
+```git clone https://github.com/XayXay-jpg/game_of_life.git````
 
 ### how to start
 
