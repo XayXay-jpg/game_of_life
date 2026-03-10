@@ -12,6 +12,9 @@
 ### how to start
 
 from directory <game_of_life>
+
 ```make```
+
 ```cd build```
+
 ```./main```
