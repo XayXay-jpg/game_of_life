@@ -2,10 +2,16 @@ CC = gcc
 
 Files = scripts/frame.c scripts/game_of_life.c scripts/control.c
 
-Flags = 
+Flags = -Werror -Wextra -Wall -std=c11
 
 Name = main
 
 all:
 	mkdir -p build
 	$(CC) $(Flags) $(Files) -o build/$(Name) -lncurses
+
+clean:
+	rm -rf build
+
+rebuild:
+	clean all
