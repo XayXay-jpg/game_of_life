@@ -88,6 +88,7 @@ int start_screen(int (*field)[LENGTH], int *game) {
         char start_key = getch();
         switch (start_key) {
             char *filename; 
+            int num;
             case '1':
                 filename = "game_of_life/scenario/blocks_80x25.txt";
                 FillField(field, filename);
@@ -105,7 +106,12 @@ int start_screen(int (*field)[LENGTH], int *game) {
                 FillField(field, filename);
                 return 1;
             case '5':
-                filename = "game_of_life/scenario/rpentomino_80x25.txt";
+                for(int i = 0; i < LENGTH; i++){
+                    for(int j = 0; j < WIDTH; j++){
+                        scanf("%d", num);
+                        field[i][j];
+                    }
+                };
                 FillField(field, filename);
                 return 1;
             case '6':
