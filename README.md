@@ -15,11 +15,13 @@ git clone https://github.com/XayXay-jpg/game_of_life.git
 ```
 
 ### how to start
+ 
+ 
 
 from directory <game_of_life>
 
 ```bash
-make
+docker build -t game_of_life .
 
-./build/main
+docker run -it game_of_life
 ```

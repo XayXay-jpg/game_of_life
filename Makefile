@@ -2,7 +2,7 @@ CC = gcc
 
 Files = scripts/frame.c scripts/game_of_life.c scripts/control.c
 
-Flags = -Werror -Wextra -Wall -std=c23
+Flags = -Werror -Wextra -Wall -std=c11
 
 Name = main
 
