@@ -1,10 +1,9 @@
-#include "../heads/frame.h"
-
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "../heads/control.h"
+#include "../heads/frame.h"
 #include "../heads/structs.h"
 
 void frame(int (*field)[LENGTH]) {

@@ -16,7 +16,7 @@ git clone https://github.com/XayXay-jpg/game_of_life.git
 
 ### how to start
  
- 
+YOU NEED DOCKER FOR IT
 
 from directory <game_of_life>
 

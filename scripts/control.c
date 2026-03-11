@@ -1,9 +1,8 @@
-#include "../heads/control.h"
-
 #include <ncurses.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../heads/control.h"
 #include "../heads/frame.h"
 #include "../heads/structs.h"
 

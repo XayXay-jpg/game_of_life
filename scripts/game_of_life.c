@@ -18,6 +18,8 @@ int main(void) {
     curs_set(0);
 
     if (start_screen(field, &game) == 0 || game == 0) {
+        clear();
+        printw("error");
         endwin();
         return 0;
     }
