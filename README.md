@@ -18,11 +18,8 @@ git clone https://github.com/XayXay-jpg/game_of_life.git
 
 from directory <game_of_life>
 
-
 ```bash
 make
 
-cd build
-
-./main
+./build/main
 ```
